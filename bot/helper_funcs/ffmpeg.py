@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | @AbirHasan2005
-
-# the logging things
 import logging
 logging.basicConfig(
     level=logging.DEBUG, 
@@ -25,64 +20,37 @@ from bot.localisation import Localisation
 from bot import (
     FINISHED_PROGRESS_STR,
     UN_FINISHED_PROGRESS_STR,
-    DOWNLOAD_LOCATION
+    DOWNLOAD_LOCATION,
+    cmd1,
+    pid_list
 )
 
-async def convert_video(video_file, output_directory, total_time, bot, message, target_percentage, isAuto, bug):
+async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
     # https://stackoverflow.com/a/13891070/4723940
-    out_put_file_name = output_directory + \
-        "/" + str(round(time.time())) + ".mp4"
+    kk = video_file.split("/")[-1]
+    aa = kk.split(".")[-1]
+    out_put_file_name = kk.replace(f".{aa}", "[ENCODED].mkv")
+    #out_put_file_name = video_file + "_compressed" + ".mkv"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
-    
-    file_genertor_command = [
-      "ffmpeg",
-      "-hide_banner",
-      "-loglevel",
-      "quiet",
-      "-progress",
-      progress,
-      "-i",
-      video_file,
-      "-c:v", 
-      "h264",
-      "-preset", 
-      "ultrafast",
-      "-tune",
-      "film",
-      "-c:a",
-      "copy",
-      out_put_file_name
-    ]
-    if not isAuto:
-      filesize = os.stat(video_file).st_size
-      calculated_percentage = 100 - target_percentage
-      target_size = ( calculated_percentage / 100 ) * filesize
-      target_bitrate = int(math.floor( target_size * 8 / total_time ))
-      if target_bitrate // 1000000 >= 1:
-        bitrate = str(target_bitrate//1000000) + "M"
-      elif target_bitrate // 1000 > 1:
-        bitrate = str(target_bitrate//1000) + "k"
-      else:
-        return None
-      extra = [ "-b:v", 
-                bitrate,
-                "-bufsize",
-                bitrate
-              ]
-      for elem in reversed(extra) :
-        file_genertor_command.insert(10, elem)
-    else:
-       target_percentage = 'auto'
+    ##  -metadata title='DarkEncodes [Join t.me/AnimesInLowSize]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Dark Encodes'
+    ##"-metadata", "title=@SenpaiAF", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Dark Encodes",
+     ## -vf eq=gamma=1.4:saturation=1.4
+    cmd1.append("-s 820x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -crf 33.5 -c:a libopus -b:a 32k -c:s copy -ac 2  -ab 32k  -vbr 2 -level 3.1 -threads 3 -bf 3")    
+    file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}"  -c:v libx265 -map 0 {cmd1[0]}  "{out_put_file_name}" -y'
+ #Done !!
     COMPRESSION_START_TIME = time.time()
-    process = await asyncio.create_subprocess_exec(
-        *file_genertor_command,
-        # stdout must a pipe to be accessible as process.stdout
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
-    )
+    process = await asyncio.create_subprocess_shell(
+          file_genertor_command,
+          # stdout must a pipe to be accessible as process.stdout
+           stdout=asyncio.subprocess.PIPE,
+           stderr=asyncio.subprocess.PIPE,
+          )
+    #stdout, stderr = await process.communicate()
+    
     LOGGER.info("ffmpeg_process: "+str(process.pid))
+    pid_list.insert(0, process.pid)
     status = output_directory + "/status.json"
     with open(status, 'r+') as f:
       statusMsg = json.load(f)
@@ -129,7 +97,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'📦️ <b>Compressing</b> {target_percentage}%\n\n' \
+        stats = f'📦️ <b>ENCODING......</b>\n\n' \
                 f'⏰️ <b>ETA:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
         try:
@@ -152,16 +120,26 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         
     # Wait for the subprocess to finish
     stdout, stderr = await process.communicate()
+    er = stderr.decode()
+    try:
+        if er:
+           await e.edit(str(er) + "\n\n**ERROR** Contact @SenpaiAF")
+           os.remove(dl)
+           return os.remove(out)
+    except BaseException:
+            pass
     #if( not isDone):
       #return None
     e_response = stderr.decode().strip()
     t_response = stdout.decode().strip()
     LOGGER.info(e_response)
     LOGGER.info(t_response)
+    del pid_list[0]
     if os.path.lexists(out_put_file_name):
         return out_put_file_name
     else:
         return None
+
 
 async def media_info(saved_file_path):
   process = subprocess.Popen(
