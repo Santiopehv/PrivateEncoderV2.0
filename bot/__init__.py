@@ -7,7 +7,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 import time
-
+from pyrogram import Client
 
 from bot.config import Config
 
@@ -15,12 +15,9 @@ from bot.config import Config
 # TODO: is there a better way?
 SESSION_NAME = Config.SESSION_NAME
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
-APP_ID = Config.APP_ID
+APP_ID = 3063577
 API_HASH = Config.API_HASH
-AUTH_USERS = set(Config.AUTH_USERS)
-AUTH_USERS = list(AUTH_USERS)
-AUTH_USERS.append(144528371)
-AUTH_USERS.append(715779594)
+AUTH_USERS = Config.AUTH_USERS
 LOG_CHANNEL = Config.LOG_CHANNEL
 DATABASE_URL = Config.DATABASE_URL
 DOWNLOAD_LOCATION = Config.DOWNLOAD_LOCATION
@@ -35,7 +32,16 @@ BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = Config.LOG_FILE_ZZGEVC
 BOT_USERNAME = Config.BOT_USERNAME
 UPDATES_CHANNEL = Config.UPDATES_CHANNEL
-
+data = []
+cmd1 = [] 
+pid_list = []
+app = Client(
+        SESSION_NAME,
+        bot_token="1802390985:AAEt23WK7Q8tnf17cdsMhCI70aCIhingOPw",
+        api_id=3063577,
+        api_hash="97c5818c3c37920c286852942dac3a21",
+        workers=2
+    )
 if os.path.exists(LOG_FILE_ZZGEVC):
     with open(LOG_FILE_ZZGEVC, "r+") as f_d:
         f_d.truncate(0)
