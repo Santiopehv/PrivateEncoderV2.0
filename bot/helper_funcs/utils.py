@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | gautamajay52 | @AbirHasan2005
 
 # the logging things
 import logging
@@ -12,6 +9,10 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 import os
+from bot import data
+from bot.plugins.incoming_message_fn import incoming_compress_message_f
+from pyrogram.types import Message
+
 
 def checkKey(dict, key):
   if key in dict.keys():
@@ -19,6 +20,15 @@ def checkKey(dict, key):
   else:
     return False
 
+async def on_task_complete():
+    del data[0]
+    if len(data) > 0:
+      await add_task(data[0])
 
-def delete_downloads():
-  os.system('rm -rf /app/downloads/*')
+async def add_task(message: Message):
+    try:
+        os.system('rm -rf /app/downloads/*')
+        await incoming_compress_message_f(message)
+    except Exception as e:
+        LOGGER.info(e)  
+    await on_task_complete()
