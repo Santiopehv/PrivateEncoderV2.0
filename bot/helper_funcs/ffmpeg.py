@@ -25,7 +25,7 @@ from bot import (
     pid_list
 )
 
-async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
+async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg, bug):
     # https://stackoverflow.com/a/13891070/4723940
     kk = video_file.split("/")[-1]
     aa = kk.split(".")[-1]
@@ -37,6 +37,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##  -metadata title='DarkEncodes [Join t.me/AnimesInLowSize]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Dark Encodes'
     ##"-metadata", "title=@SenpaiAF", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Dark Encodes",
      ## -vf eq=gamma=1.4:saturation=1.4
+     ## lol 😂
     cmd1.append("-s 820x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -crf 33.5 -c:a libopus -b:a 32k -c:s copy -ac 2  -ab 32k  -vbr 2 -level 3.1 -threads 3 -bf 3")    
     file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}"  -c:v libx265 -map 0 {cmd1[0]}  "{out_put_file_name}" -y'
  #Done !!
