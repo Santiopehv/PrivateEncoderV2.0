@@ -15,7 +15,7 @@ from bot.config import Config
 # TODO: is there a better way?
 SESSION_NAME = Config.SESSION_NAME
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
-APP_ID = 3063577
+APP_ID = Config.APP_ID
 API_HASH = Config.API_HASH
 AUTH_USERS = Config.AUTH_USERS
 LOG_CHANNEL = Config.LOG_CHANNEL
@@ -34,12 +34,15 @@ BOT_USERNAME = Config.BOT_USERNAME
 UPDATES_CHANNEL = Config.UPDATES_CHANNEL
 data = []
 cmd1 = [] 
+crf = []
+watermark = []
+# senpai I am changing app string 
 pid_list = []
 app = Client(
         SESSION_NAME,
-        bot_token="1802390985:AAEt23WK7Q8tnf17cdsMhCI70aCIhingOPw",
-        api_id=3063577,
-        api_hash="97c5818c3c37920c286852942dac3a21",
+        bot_token=TG_BOT_TOKEN,
+        api_id=APP_ID,
+        api_hash=API_HASH,
         workers=2
     )
 if os.path.exists(LOG_FILE_ZZGEVC):
