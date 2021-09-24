@@ -120,6 +120,15 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
           pass
         
     stdout, stderr = await process.communicate()
+    r = stderr.decode()
+    try:
+        if er:
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @SenpaiAF")
+           os.remove(videofile)
+           os.remove(out_put_file_name)
+           return None
+    except BaseException:
+            pass
     #if( not isDone):
       #return None
     e_response = stderr.decode().strip()
