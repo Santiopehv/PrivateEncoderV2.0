@@ -119,28 +119,17 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         except:
           pass
         
-    # Wait for the subprocess to finish
     stdout, stderr = await process.communicate()
-    er = stderr.decode()
-    try:
-        if er:
-           await e.edit(str(er) + "\n\n**ERROR** Contact @SenpaiAF")
-           os.remove(dl)
-           return os.remove(out)
-    except BaseException:
-            pass
     #if( not isDone):
       #return None
     e_response = stderr.decode().strip()
     t_response = stdout.decode().strip()
     LOGGER.info(e_response)
     LOGGER.info(t_response)
-    del pid_list[0]
     if os.path.lexists(out_put_file_name):
         return out_put_file_name
     else:
         return None
-
 
 async def media_info(saved_file_path):
   process = subprocess.Popen(
@@ -172,7 +161,7 @@ async def media_info(saved_file_path):
   return total_seconds, bitrate
   
 async def take_screen_shot(video_file, output_directory, ttl):
-    # https://stackoverflow.com/a/13891070/4723940
+    # bruh! Dont u dare fuck this logic ...
     out_put_file_name = os.path.join(
         output_directory,
         str(time.time()) + ".jpg"
@@ -188,7 +177,7 @@ async def take_screen_shot(video_file, output_directory, ttl):
             "1",
             out_put_file_name
         ]
-        # width = "90"
+        
         process = await asyncio.create_subprocess_exec(
             *file_genertor_command,
             # stdout must a pipe to be accessible as process.stdout
@@ -204,3 +193,4 @@ async def take_screen_shot(video_file, output_directory, ttl):
         return out_put_file_name
     else:
         return None
+# senpai I edited this,  maybe if it is wrong correct it 
