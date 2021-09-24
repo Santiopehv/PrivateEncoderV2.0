@@ -115,7 +115,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         except:
             pass
         try:
-          await bug.edit_text(text=stats)
+          await message.edit_text(text=stats)
         except:
           pass
         
@@ -126,6 +126,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     t_response = stdout.decode().strip()
     LOGGER.info(e_response)
     LOGGER.info(t_response)
+    del pid_list[0]
     if os.path.lexists(out_put_file_name):
         return out_put_file_name
     else:
@@ -161,7 +162,6 @@ async def media_info(saved_file_path):
   return total_seconds, bitrate
   
 async def take_screen_shot(video_file, output_directory, ttl):
-    # bruh! Dont u dare fuck this logic ...
     out_put_file_name = os.path.join(
         output_directory,
         str(time.time()) + ".jpg"
