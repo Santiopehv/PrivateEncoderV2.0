@@ -13,7 +13,6 @@ from bot import (
   AUTH_USERS,
   LOG_CHANNEL,
   UPDATES_CHANNEL,
-  DATABASE_URL,
   SESSION_NAME,
   data,
   app  
@@ -40,7 +39,6 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Usern
 os.system("wget https://telegra.ph/file/5c4635e173e7407694a63.jpg -O thumb.jpg")
 
 LOGS_CHANNEL = -1001283278354
-#db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
