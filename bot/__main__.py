@@ -1,6 +1,5 @@
 from datetime import datetime as dt
 import os
-from bot.helper_funcs.utils import on_task_complete
 from bot import (
     APP_ID,
     API_HASH,
@@ -15,7 +14,7 @@ from bot import (
     app,
     cmd1
 )
-from bot.helper_funcs.utils import add_task
+from bot.helper_funcs.utils import add_task, on_task_complete
 from pyrogram import Client, filters
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 
