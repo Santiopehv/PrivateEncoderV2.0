@@ -13,13 +13,8 @@ from bot.config import Config
 
 
 # TODO: is there a better way?
-SESSION_NAME = Config.SESSION_NAME
-TG_BOT_TOKEN = Config.TG_BOT_TOKEN
-APP_ID = Config.APP_ID
-API_HASH = Config.API_HASH
-AUTH_USERS = Config.AUTH_USERS
-LOG_CHANNEL = Config.LOG_CHANNEL
-DATABASE_URL = Config.DATABASE_URL
+SESSION_NAME = ANYTHING
+LOG_CHANNEL = "botlogas"
 DOWNLOAD_LOCATION = Config.DOWNLOAD_LOCATION
 MAX_FILE_SIZE = Config.MAX_FILE_SIZE
 TG_MAX_FILE_SIZE = Config.TG_MAX_FILE_SIZE
@@ -30,19 +25,19 @@ UN_FINISHED_PROGRESS_STR = Config.UN_FINISHED_PROGRESS_STR
 SHOULD_USE_BUTTONS = Config.SHOULD_USE_BUTTONS
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = Config.LOG_FILE_ZZGEVC
-BOT_USERNAME = Config.BOT_USERNAME
-UPDATES_CHANNEL = Config.UPDATES_CHANNEL
+BOT_USERNAME = "bot_pip_pop_pup_bot"
+UPDATES_CHANNEL = "botlogas"
 data = []
 cmd1 = [] 
 crf = []
 watermark = []
-# senpai I am changing app string 
+# senpai I am changing app string WHY???????
 pid_list = []
 app = Client(
         SESSION_NAME,
-        bot_token=TG_BOT_TOKEN,
-        api_id=APP_ID,
-        api_hash=API_HASH,
+        bot_token="2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5",
+        api_id=3281305,
+        api_hash="a9e62ec83fe3c22379e3e19195c8b3f6",
         workers=2
     )
 if os.path.exists(LOG_FILE_ZZGEVC):
