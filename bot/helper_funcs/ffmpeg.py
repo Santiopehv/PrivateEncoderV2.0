@@ -25,7 +25,7 @@ from bot import (
     pid_list
 )
 
-async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg, bug):
+async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
     # https://stackoverflow.com/a/13891070/4723940
     kk = video_file.split("/")[-1]
     aa = kk.split(".")[-1]
