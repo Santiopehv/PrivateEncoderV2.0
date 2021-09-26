@@ -9,7 +9,7 @@ from bot import (
     TG_BOT_TOKEN,
     BOT_USERNAME,
     SESSION_NAME,
-    DATABASE_URL,
+    
     data,
     app,
     cmd1
