@@ -11,6 +11,8 @@ from pyrogram import Client
 
 
 # TODO: is there a better way?
+AUTH_USERS = [1391975600, 888605132, 1760568371, 1666551439]
+
 TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5"
 APP_ID = 3281305
 API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
