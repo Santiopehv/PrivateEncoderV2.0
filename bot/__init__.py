@@ -11,6 +11,9 @@ from pyrogram import Client
 
 
 # TODO: is there a better way?
+TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5"
+APP_ID = 3281305
+API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
 SESSION_NAME = "AHCompressorBot"
 LOG_CHANNEL = "botlogas"
 DOWNLOAD_LOCATION = "/app/downloads"
@@ -30,9 +33,9 @@ watermark = []
 pid_list = []
 app = Client(
         SESSION_NAME,
-        bot_token="2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5",
-        api_id=3281305,
-        api_hash="a9e62ec83fe3c22379e3e19195c8b3f6",
+        bot_token=TG_BOT_TOKEN,
+        api_id=APP_ID,
+        api_hash=API_HASH,
         workers=2
     )
 if os.path.exists(LOG_FILE_ZZGEVC):
