@@ -14,7 +14,7 @@ from pyrogram import Client
 AUTH_USERS = [1391975600, 888605132, 1760568371, 1666551439]
 
 #TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5-Z3SWM"
-TG_BOT_TOKEN = "2014429881:AAHbBSvx77J2iI09nQkWEegEQlnPCE7RgpI"
+TG_BOT_TOKEN = "2021107131:AAFKeMu9HwQAx9h2hzqRKqBQ4WDHlzz7cMM" 
 APP_ID = 3281305
 API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
 SESSION_NAME = "AHCompressorBot"
@@ -27,10 +27,10 @@ FINISHED_PROGRESS_STR = "▓"
 UN_FINISHED_PROGRESS_STR = "░"
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = "Log.txt"
-BOT_USERNAME = "bot_pip_pop_pup_bot"
+BOT_USERNAME = "anime_encoding_bot" 
 UPDATES_CHANNEL = "botlogas"
 data = []
-cmd1 = [] 
+# cmd1 = [] 
 crf = []
 watermark = []
 # senpai I am changing app string WHY???????
