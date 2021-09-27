@@ -34,7 +34,7 @@ from bot.plugins.status_message_fn import (
 
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
-sudo_users = "1391975600 1666551439" 
+sudo_users = "1666551439 1930343434"
 
 uptime = dt.now()
 
