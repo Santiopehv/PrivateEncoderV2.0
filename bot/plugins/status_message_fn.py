@@ -13,7 +13,8 @@ from bot import (
     LOG_FILE_ZZGEVC,
     MAX_MESSAGE_LENGTH,
     AUTH_USERS,
-    cmd1,
+    crf,
+    watermark,
     data,
     pid_list
 )
