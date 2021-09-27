@@ -12,7 +12,8 @@ from bot import (
     
     data,
     app,
-    cmd1
+    crf,
+    watermark 
 )
 from bot.helper_funcs.utils import add_task, on_task_complete
 from pyrogram import Client, filters
@@ -33,7 +34,7 @@ from bot.plugins.status_message_fn import (
 
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
-sudo_users = "1391975600 888605132 1760568371"
+sudo_users = "1391975600 1666551439" 
 
 uptime = dt.now()
 
@@ -75,7 +76,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & filters.command(["compress", f"compress@{BOT_USERNAME}"]))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot, contact @SenpaiAF for permission")
+            return await message.reply_text("You are not authorised to use this bot")
         query = await message.reply_text("```Added to Queue ⏰...```\nPlease be patient, Compress will start soon", quote=True)
         data.append(message.reply_to_message)
         if len(data) == 1:
@@ -85,7 +86,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & filters.command(["movie_mode", f"movie_mode@{BOT_USERNAME}"]))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot, contact @SenpaiAF for permission")
+            return await message.reply_text("You are not authorised to use this bot")
         await message.reply_text("```Movie Mode has been set", quote=True)
         cmd1.insert(0, "-pix_fmt yuv420p -preset veryfast -s 980x536 -crf 28 -b:v 2M -profile:a  aac_he_v2 -c:a libopus -ac 1 -vbr 2 -ab 40k -c:s copy -y")
                  
@@ -93,7 +94,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & filters.command(["normal_mode", f"normal_mode@{BOT_USERNAME}"]))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot, contact @SenpaiAF for permission")
+            return await message.reply_text("You are not authorised to use this bot")
         await message.reply_text("```Normal Mode has been set", quote=True)
         cmd1.insert(0, "-s 820x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -crf 33.5 -c:a libopus -b:a 32k -c:s copy -ac 2  -ab 32k  -vbr 2 -level 3.1 -threads 3 -bf 3")
                          
@@ -111,7 +112,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & (filters.video | filters.document))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot, contact @SenpaiAF for permission")
+            return await message.reply_text("You are not authorised to use this bot")
         query = await message.reply_text("```Added to Queue ⏰...```\nPlease be patient, Compress will start soon", quote=True)
         data.append(message)
         if len(data) == 1:
@@ -121,7 +122,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & (filters.photo))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot, contact @SenpaiAF for permission")
+            return await message.reply_text("You are not authorised to use this bot")
         os.system('rm thumb.jpg')
         await message.download(file_name='/app/thumb.jpg')
         await message.reply_text('Thumbnail Added')
@@ -145,7 +146,7 @@ if __name__ == "__main__" :
    
     @app.on_message(filters.incoming & filters.command(["help", f"help@{BOT_USERNAME}"]))
     async def help_message(app, message):
-        await message.reply_text("I Warn U 2 Not Use this Bot ", quote=True)
+        await message.reply_text("Hi, I am Video Encoder bot\n\n➥ Send me your telegram files\n➥ I will encode them one by one as I have queue feature\n➥ Just send me the jpg/pic and it will be set as your custom thumbnail \➥ For ffmpeg lovers - u can change crf by /eval crf.insert(0, "crf value")\n➥ Join @Animes_Encoded for animes \n\n🏷 Maintained By: @dark_contacting_bot", quote=True)
   
     @app.on_message(filters.incoming & filters.command(["log", f"log@{BOT_USERNAME}"]))
     async def help_message(app, message):
