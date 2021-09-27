@@ -11,10 +11,10 @@ from pyrogram import Client
 
 
 # TODO: is there a better way?
-AUTH_USERS = [1391975600, 888605132, 1760568371, 1666551439]
+AUTH_USERS = [1391975600, 1666551439]
 
 #TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5-Z3SWM"
-TG_BOT_TOKEN = "2021107131:AAFKeMu9HwQAx9h2hzqRKqBQ4WDHlzz7cMM" 
+TG_BOT_TOKEN = "2041120036:AAGWMuUon98HOb-moDkmodYSD2x4b_WcYyw" 
 APP_ID = 3281305
 API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
 SESSION_NAME = "AHCompressorBot"
@@ -27,7 +27,7 @@ FINISHED_PROGRESS_STR = "▓"
 UN_FINISHED_PROGRESS_STR = "░"
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = "Log.txt"
-BOT_USERNAME = "anime_encoding_bot" 
+BOT_USERNAME = "vid_encoder_rorona_bot" 
 UPDATES_CHANNEL = "botlogas"
 data = []
 # cmd1 = [] 
