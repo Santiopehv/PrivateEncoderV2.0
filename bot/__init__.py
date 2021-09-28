@@ -11,7 +11,7 @@ from pyrogram import Client
 
 
 # TODO: is there a better way?
-AUTH_USERS = "1666551439" 
+AUTH_USERS = [1666551439]
 
 #TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5-Z3SWM"
 TG_BOT_TOKEN = "2046150318:AAHdlKrpYgrQxOhBn3WhsoFvsp-x8Ji2oH4" 
