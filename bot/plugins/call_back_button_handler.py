@@ -64,21 +64,11 @@ async def button(bot, update: CallbackQuery):
                     #oof 
                 except:
                     pass
-                        
-             
-                                  
-            
-                    
-
-        elif cb_data == "fuckoff":
-            try:
-                await update.message.edit_text("Okay! Fine 🤬")
-            except:
-                pass
-            
-            
-            
-            
-            
+                elif cb_data == "fuckoff":
+                    try:
+                        await update.message.edit_text("Okay! off")
+                    except:
+                        pass
+           
             
             
