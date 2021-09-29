@@ -47,10 +47,7 @@ async def button(bot, update: CallbackQuery):
                             os.system("rm -rf downloads/*")
                             await bot.delete_messages(update.message.chat.id, statusMsg["message"])
                             #await on_task_complete()
-                        except Exception as e:
-                            print(e)
-                            pass
-                        
+                            
                         chat_id = LOG_CHANNEL
                         utc_now = datetime.datetime.utcnow()
                         ist_now = utc_now + \
@@ -64,11 +61,24 @@ async def button(bot, update: CallbackQuery):
             else:
                 try:
                     await update.message.edit_text("You are not allowed to do that 🤭")
+                    #oof 
                 except:
                     pass
+                        
+             
+                                  
+            
+                    
 
         elif cb_data == "fuckoff":
             try:
                 await update.message.edit_text("Okay! Fine 🤬")
             except:
                 pass
+            
+            
+            
+            
+            
+            
+            
