@@ -11,6 +11,15 @@ from pyrogram import Client
 
 
 # TODO: is there a better way?
+
+
+
+
+from bot.config import Config
+
+
+
+# dont think ne dumb (c) @Animes_Encoded 
 AUTH_USERS = [1666551439]
 
 SESSION_NAME = Config.SESSION_NAME
