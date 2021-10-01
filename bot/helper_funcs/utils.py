@@ -29,6 +29,6 @@ async def add_task(message: Message):
     try:
         os.system('rm -rf /app/downloads/*')
         await incoming_compress_message_f(message)
-        await on_task_complete()
-    
-  # removed the fucking (e)
+    except Exception as e:
+        LOGGER.info(e)  
+    await on_task_complete()
