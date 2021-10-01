@@ -35,7 +35,7 @@ async def exec_message_f(client, message):
     if True:
         DELAY_BETWEEN_EDITS = 0.3
         PROCESS_RUN_TIME = 100
-        cmd = message.text.split(" ", maxsplit=1)[0]
+        cmd = message.text.split(" ", maxsplit=1)[1]
 
         reply_to_id = message.message_id
         if message.reply_to_message:
@@ -78,7 +78,7 @@ async def exec_message_f(client, message):
 async def eval_message_f(client, message):
     if message.from_user.id in AUTH_USERS:
         status_message = await message.reply_text("Processing ...")
-        cmd = message.text.split(" ", maxsplit=1)[0]
+        cmd = message.text.split(" ", maxsplit=1)[1]
 
         reply_to_id = message.message_id
         if message.reply_to_message:
