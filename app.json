@@ -12,16 +12,10 @@
   "success_url": "https://t.me/linux_repo",
   "website": "https://t.me/Discovery_Updates",
   "repository": "https://github.com/AbirHasan2005/VideoCompress",
-  
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable VARs when in ENV mode",
       "value": "ANYTHING"
-    },
-    "AUTH_USERS": {
-      "description": "Get your telegram id and insert it here",
-      "value": 1666551439",
-      "required": true 
     },
     "SESSION_NAME": {
       "description": "Keep this default",
@@ -48,10 +42,12 @@
       "value": "",
       "required": true
     },
-    "LOG_CHANNEL": {
-      "description": "Your Bot's Log Channel's Username. Dont use @ or t.me before it.For Help ask in @anime_hub_group",
+    "AUTH_USERS": {
+      "description": "Allow only pre-defined users to use this bot as Sudo User. Separate with Space. Just for using Admin Commands.",
+      "value": "1666551439",
+      "required": false
       "value": "",
-      "required": true 
+      "required": true
     }
   },
   "stack": "container"
