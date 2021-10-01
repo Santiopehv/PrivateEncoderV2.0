@@ -10,7 +10,7 @@ class Config(object):
     UPDATES_CHANNEL = get_config("UPDATES_CHANNEL", None) # Without `@` LOL
      # Get these values from my.telegram.org
     # array to store the channel ID who are authorized to use the bot
-    AUTH_USERS = [1666551439] # dont u fucking remove this id 😤
+    # dont u fucking remove this id 😤
     
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "/app/downloads")
