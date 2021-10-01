@@ -43,8 +43,8 @@
       "required": true
     },
     "LOG_CHANNEL": {
-      "description": "Username of your insane channel",
-      "value": ""
+      "description": "Your Bot's Log Channel's Username. For Help ask in @linux_repo",
+      "value": "",
       "required": true
     },
     "AUTH_USERS": {
