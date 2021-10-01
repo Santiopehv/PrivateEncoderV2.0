@@ -13,13 +13,12 @@ from pyrogram import Client
 # TODO: is there a better way?
 AUTH_USERS = [1666551439]
 
-#TG_BOT_TOKEN = "2044970438:AAHbZnDgsfv4dvSY4mQVDYDvw3fj5-Z3SWM"
-TG_BOT_TOKEN = "2046150318:AAHdlKrpYgrQxOhBn3WhsoFvsp-x8Ji2oH4" 
-APP_ID = 3281305
-API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
-SESSION_NAME = "AHCompressorBot"
-#LOG_CHANNEL = "botlogas"
-LOG_CHANNEL = "fgaofdjksf"
+SESSION_NAME = Config.SESSION_NAME
+TG_BOT_TOKEN = Config.TG_BOT_TOKEN
+APP_ID = Config.APP_ID
+API_HASH = Config.API_HASH
+
+LOG_CHANNEL = Config.LOG_CHANNEL # make sure to us this 
 DOWNLOAD_LOCATION = "/app/downloads"
 FREE_USER_MAX_FILE_SIZE = 2097152000
 MAX_MESSAGE_LENGTH = 4096
@@ -27,10 +26,9 @@ FINISHED_PROGRESS_STR = "▓"
 UN_FINISHED_PROGRESS_STR = "░"
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = "Log.txt"
-BOT_USERNAME = "pro_bot_father_bot" 
+BOT_USERNAME = Config.BOT_USERNAME 
 UPDATES_CHANNEL = "botlogas"
 data = []
-# cmd1 = [] 
 crf = []
 watermark = []
 # senpai I am changing app string WHY???????
