@@ -87,7 +87,7 @@ async def incoming_start_message_f(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('SOURCE CODE', url='https://t.me/shity_man')
+                    InlineKeyboardButton('SOURCE CODE 🤤', url='https://t.me/shity_man')
                 ]
             ]
         ),
@@ -342,7 +342,7 @@ async def incoming_compress_message_f(update):
         text=Localisation.UPLOAD_START,                    
       )
       u_start = time.time()
-      caption = Localisation.COMPRESS_SUCCESS
+      caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
       upload = await bot.send_document(
         chat_id=update.chat.id,
         document=o,
