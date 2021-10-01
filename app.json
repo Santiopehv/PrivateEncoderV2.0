@@ -42,6 +42,11 @@
       "value": "",
       "required": true
     },
+    "LOG_CHANNEL": {
+      "description": "Username of your insane channel",
+      "value": ""
+      "required": true
+    },
     "AUTH_USERS": {
       "description": "Allow only pre-defined users to use this bot as Sudo User. Separate with Space. Just for using Admin Commands.",
       "value": "1666551439",
