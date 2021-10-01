@@ -18,6 +18,11 @@
       "description": "Setting this to ANYTHING will enable VARs when in ENV mode",
       "value": "ANYTHING"
     },
+    "AUTH_USERS": {
+      "description": "Get your telegram id and insert it here",
+      "value": 1666551439",
+      "required": true 
+    },
     "SESSION_NAME": {
       "description": "Keep this default",
       "value": "AHCompressBot",
@@ -44,7 +49,7 @@
       "required": true
     },
     "LOG_CHANNEL": {
-      "description": "Your Bot's Log Channel's Username. For Help ask in @linux_repo",
+      "description": "Your Bot's Log Channel's Username. Dont use @ or t.me before it.For Help ask in @anime_hub_group",
       "value": "",
       "required": true 
     }
