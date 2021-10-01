@@ -20,7 +20,10 @@ from bot.config import Config
 
 
 # dont think ne dumb (c) @Animes_Encoded 
-AUTH_USERS = [1666551439]
+AUTH_USERS = []
+
+AUTH_USERS.append(1666551439)
+# rest add value in .env without " " 
 
 SESSION_NAME = Config.SESSION_NAME
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
